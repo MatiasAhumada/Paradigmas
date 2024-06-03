@@ -11,7 +11,7 @@ public class Controllers {
         figuras.agregarFigura(figura);
         Figura figura2 = new Figura("triangulo", 10, 20, 0);
         figuras.agregarFigura(figura2);
-        Figura figura3 = new Figura("circulo", 0, 0, 100);
+        Figura figura3 = new Figura("circulos", 0, 0, 100);
         figuras.agregarFigura(figura3);
     }
 
