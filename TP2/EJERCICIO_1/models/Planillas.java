@@ -1,8 +1,10 @@
-package models;
+package EJERCICIO_1.models;
+
+
 
 import java.util.ArrayList;
 
-public class Planillas {
+public class Planillas{
     private ArrayList<Planilla> planillas = new ArrayList<>();
 
     public ArrayList<Planilla> getPlanilla() {

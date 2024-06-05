@@ -1,4 +1,6 @@
-package models;
+package EJERCICIO_1.models;
+
+
 
 public class Alumno {
     private int legajo;
