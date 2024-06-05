@@ -12,13 +12,14 @@ public class Figuras {
     public void setFiguras(ArrayList<Figura> figuras) {
         this.figuras = figuras;
     }
-    
-    public void agregarFigura(Figura figura){
+
+    public void agregarFigura(Figura figura) {
         figuras.add(figura);
     }
-    public void mostrarFigura(){
-        for(Figura figura : figuras){
-           System.out.println(figura); 
+
+    public void mostrarFigura() {
+        for (Figura figura : figuras) {
+            figura.fig();
         }
     }
 }

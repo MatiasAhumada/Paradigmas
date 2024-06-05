@@ -7,12 +7,12 @@ public class Controllers {
     private static Figuras figuras = new Figuras();
 
     public static void crearFigura() {
-        Figura figura = new Figura("cuadrado", 10, 20, 0);
-        figuras.agregarFigura(figura);
-        Figura figura2 = new Figura("triangulo", 10, 20, 0);
-        figuras.agregarFigura(figura2);
-        Figura figura3 = new Figura("circulos", 0, 0, 100);
-        figuras.agregarFigura(figura3);
+        Figura cuadrado = new Figura(10, "cuadrado");
+        figuras.agregarFigura(cuadrado);
+        Figura triangulo = new Figura(10,"triangulo");
+        figuras.agregarFigura(triangulo);
+        //Figura figura3 = new Figura("circulos", 0, 0, 100);
+        //figuras.agregarFigura(figura3);
     }
 
     public static void mostrarFiguras() {
