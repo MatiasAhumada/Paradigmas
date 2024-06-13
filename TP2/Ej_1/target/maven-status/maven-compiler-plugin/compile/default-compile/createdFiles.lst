@@ -1,0 +1,9 @@
+models\Alumno.class
+models\Alumnos.class
+models\Planilla.class
+models\Planillas.class
+controllers\Controller.class
+Main\Main.class
+models\Materias.class
+models\Fecha.class
+models\Materia.class

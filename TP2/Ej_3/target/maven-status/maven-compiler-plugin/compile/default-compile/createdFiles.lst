@@ -1,0 +1,9 @@
+models\Prestamo.class
+models\Ejemplares.class
+models\Prestamos.class
+models\Usuarios.class
+MAIN\Main.class
+models\Ejemplar.class
+controllers\Controllers.class
+models\Usuario.class
+models\Fecha.class
