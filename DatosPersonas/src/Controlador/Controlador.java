@@ -33,9 +33,8 @@ public class Controlador {
     public static void agregar(VistaPersona vista) {
         Persona persona = new Persona();
         try {
-
             persona.setNombre(vista.getNombre().getText());
-            persona.setEdad(Integer.valueOf(vista.getEdad().getText()));
+            persona.setEdad(Integer.parseInt(vista.getEdad().getText()));
             if (persona.getEdad() >= 0 && persona.getEdad() <= 110) {
                 personas.add(persona);
                 JOptionPane.showMessageDialog(null, "Datos en lista", "Mensaje", JOptionPane.INFORMATION_MESSAGE);

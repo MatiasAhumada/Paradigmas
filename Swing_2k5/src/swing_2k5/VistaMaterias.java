@@ -12,7 +12,7 @@
 package swing_2k5;
 
 import javax.swing.table.DefaultTableModel;
-import static sun.net.www.http.HttpClient.New;
+
 /**
  *
  * @author Paradigmas
@@ -171,7 +171,7 @@ public class VistaMaterias extends javax.swing.JDialog {
         tabla.addColumn("Codigo");
         tabla.addColumn("Nombre Materia");
         for(Materia m : lista.getLista()){          
-            Object fila[]= New Object[2];
+            Object fila[]= new Object[2];
             fila[0]= m.getCodigo();
             fila[1]=m.getNombre();
             tabla.addRow(fila);

@@ -14,6 +14,8 @@ import javax.swing.JTextField;
  */
 public class VistaPersona extends javax.swing.JFrame {
     
+    
+    
     public JTextField getEdad() {
         return edad;
     }
@@ -34,7 +36,9 @@ public class VistaPersona extends javax.swing.JFrame {
      * Creates new form VistaPersona
      */
     public VistaPersona() {
+        
         initComponents();
+        
        }
 
     /**
@@ -68,21 +72,21 @@ public class VistaPersona extends javax.swing.JFrame {
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnSalir(evt);
             }
         });
 
         jButton2.setText("Agregar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnAgg(evt);
             }
         });
 
         jButton3.setText("Mostrar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BtnMostrar(evt);
             }
         });
 
@@ -140,19 +144,18 @@ public class VistaPersona extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnSalir(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalir
         Controlador.salir(this);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnSalir
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnAgg(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgg
         Controlador.agregar(this);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtnAgg
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-      
+    private void BtnMostrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrar
+
         Controlador.mostrar();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BtnMostrar
 
     /**
      * @param args the command line arguments

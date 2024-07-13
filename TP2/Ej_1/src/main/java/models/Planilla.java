@@ -1,24 +1,18 @@
 package models;
 
-
-
 import java.time.LocalDate;
 
 public class Planilla {
-    private final LocalDate fecha;
-    private final String profesor;
-    
 
- 
-    public Planilla(LocalDate fecha, String profesor) {
+    private final String fecha;
+    private final String profesor;
+
+    public Planilla(String fecha, String profesor) {
         this.fecha = fecha;
         this.profesor = profesor;
-       
     }
-  
 
-
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -27,7 +21,7 @@ public class Planilla {
     }
 
     public String toString() {
-        return "Profesor = " + profesor + ", Fecha = " + fecha ;
+        return "Profesor = " + profesor + ", Fecha = " + fecha;
     }
 
 }
