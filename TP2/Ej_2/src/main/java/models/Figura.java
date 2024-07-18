@@ -1,4 +1,4 @@
-package EJERCICIO_2.models;
+package models;
 
 public class Figura {
     private String tipo;
@@ -11,6 +11,8 @@ public class Figura {
     public int getLado() {
         return lado;
     }
+    
+    public Figura(){}
 
     public Figura(int lado, String tipo) {
         this.lado = lado;
@@ -27,31 +29,7 @@ public class Figura {
         }
     }
 
-    /*
-     * public void der() {
-     * for (int i = 0; i <= lado; i++) {
-     * for (int k = 0; k < lado - i; k++) {
-     * System.out.print(" ");
-     * }
-     * 
-     * for (int j = 0; j < i; j++) {
-     * 
-     * System.out.print("*");
-     * }
-     * System.out.println("");
-     * }
-     * }
-     * public void izq() {
-     * for (int i = 0; i <= lado; i++) {
-     * 
-     * for (int j = 0; j < i; j++) {
-     * 
-     * System.out.print("* ");
-     * }
-     * System.out.println("");
-     * }
-     * }
-     */
+  
 
     public void triangulo() {
         for (int i = 0; i <= lado; i++) {
