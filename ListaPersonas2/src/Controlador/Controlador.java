@@ -31,7 +31,7 @@ public class Controlador {
         Persona persona = new Persona();
         try{
             persona.setNombre(vista.getNombre().getText());
-            persona.setEdad(Integer.valueOf(vista.getEdad().getText()));
+            persona.setEdad(Integer.parseInt(vista.getEdad().getText()));
             personas.add(persona);
             JOptionPane.showMessageDialog(vista, "Datos en lista", "Mensaje", JOptionPane.CLOSED_OPTION);
             vista.getNombre().setText("");
