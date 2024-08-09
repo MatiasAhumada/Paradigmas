@@ -11,13 +11,13 @@ import java.util.ArrayList;
  * @author bonaparte
  */
 public class Personas {
-    private ArrayList<Persona> personas = new ArrayList<Persona>();
+    private ArrayList<Persona> personas = new ArrayList<>();
 
-    public ArrayList<Persona> getPersonas() {
+    public ArrayList getPersonas() {
         return personas;
     }
 
-    public void setPersonas(ArrayList<Persona> personas) {
+    public void setPersonas(ArrayList personas) {
         this.personas = personas;
     }
 

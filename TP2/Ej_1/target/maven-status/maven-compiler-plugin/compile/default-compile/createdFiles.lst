@@ -1,9 +1,9 @@
 models\Alumno.class
 Vista\VistaPrincipal$3.class
-models\Planilla.class
-Vista\VistaPrincipal$2.class
 models\Alumnos.class
 Vista\VistaPrincipal.class
+models\Planilla.class
+Vista\VistaPrincipal$2.class
 controllers\Controller.class
 Main\Main.class
 Vista\VistaPrincipal$1.class

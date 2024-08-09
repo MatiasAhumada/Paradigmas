@@ -34,6 +34,8 @@ public class VerLista extends javax.swing.JDialog {
 
     /**
      * Creates new form VerLista
+     * @param parent
+     * @param modal
      */
     public VerLista(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

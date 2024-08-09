@@ -79,17 +79,4 @@ public class Controller {
 
     }
 
-    /*public static void crearMateria(String name) {
-        Materia materia = new Materia(name);
-        materias.agregarMateria(materia);
-
-    }
-
-    public static void mostrarPlanilla() {
-        planillas.mostrarPlanillas();
-    }
-
-    public static void mostrarAlumnos() {
-        alumnos.mostrarAlumnos();
-    }*/
 }
