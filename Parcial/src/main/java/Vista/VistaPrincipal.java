@@ -329,7 +329,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void BtnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPedidosActionPerformed
         // TODO add your handling code here:    
 
-        Controller.mostrar();
+        Controller.mostrar(this);
     }//GEN-LAST:event_BtnPedidosActionPerformed
 
 

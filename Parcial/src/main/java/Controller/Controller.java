@@ -9,16 +9,15 @@ package Controller;
  * @author Matias
  */
 import Model.Pedido;
-import Model.Pedidos;
+import Vista.ListaPed;
 import Vista.VistaPrincipal;
-import Vista.ListaPedidos;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Controller {
 
-    private static ArrayList<Pedido> pedidos = new ArrayList<>();
+    private static final ArrayList<Pedido> pedidos = new ArrayList<>();
 
     public static void inicio() {
         new VistaPrincipal().setVisible(true);
@@ -44,6 +43,7 @@ public class Controller {
             pedido.setCantidad(Integer.parseInt(vista.getTextCantidad().getText()));
             pedido.setFecha(vista.getFecha().getText());
             pedido.setTipo(vista.getComboTipo().getSelectedItem().toString());
+            pedido.setEstado("En Preparacion");
             pedidos.add(pedido);
 
             JOptionPane.showMessageDialog(vista, "Datos en lista", "Mensaje", JOptionPane.CLOSED_OPTION);
@@ -72,13 +72,13 @@ public class Controller {
 
     }
 
-    public static void mostrar() {
-        ListaPedidos pedidoss = new ListaPedidos();
+    public static void mostrar(VistaPrincipal vp) {
+       ListaPed pedidoss = new ListaPed(vp,true);
         formatoTabla(pedidoss);
         pedidoss.setVisible(true);
     }
 
-    public static void formatoTabla(ListaPedidos vista) {
+    public static void formatoTabla(ListaPed vista) {
         vista.getModelo().setColumnCount(0);
         vista.getModelo().setNumRows(0);
         vista.getModelo().addColumn("Fecha");
@@ -86,23 +86,23 @@ public class Controller {
         vista.getModelo().addColumn("Apellido");
         vista.getModelo().addColumn("Cantidad");
         vista.getModelo().addColumn("Tipo");
-        //vista.getModelo().addColumn("Estado");
+        vista.getModelo().addColumn("Estado");
 
         for (Pedido pedido : pedidos) {
-            Object[] fila = new Object[5];
+            Object[] fila = new Object[6];
             fila[0] = pedido.getFecha();
             fila[1] = pedido.getNombre();
             fila[2] = pedido.getApellido();
             fila[3] = pedido.getCantidad();
             fila[4] = pedido.getTipo();
-            //  fila[5] = pedido.getEstado();
+            fila[5] = pedido.getEstado();
             vista.getModelo().addRow(fila);
         }
 
         vista.getTabla().setModel(vista.getModelo());
     }
 
-    public static void salirVista(ListaPedidos vista) {
+    public static void salirVista(ListaPed vista) {
         vista.dispose();
     }
 }
