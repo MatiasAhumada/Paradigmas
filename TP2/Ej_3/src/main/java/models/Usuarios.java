@@ -19,24 +19,16 @@ public class Usuarios {
 
     public String validarUsuario(int legajo) {
         for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getLegajo() == legajo && usuarios.get(i).getSituacion() == "al dia") {
-                return "Es socio y esta al dia";
-            } else if (usuarios.get(i).getLegajo() == legajo && usuarios.get(i).getSituacion() != "al dia") {
-                return "Es socio y DEBE libro/s";
+            if (usuarios.get(i).getLegajo() == legajo && usuarios.get(i).getEstado() == "Al dia") {
+                return "Al dia";
+            } else if (usuarios.get(i).getLegajo() == legajo && usuarios.get(i).getEstado() == "DEBE") {
+                return "Debe";
             }
 
         }
         return "No es socio";
     }
-    public String buscarUsuario(int legajo){
-        for(int i = 0; i< usuarios.size();i++){
-            if(usuarios.get(i).getLegajo()==legajo){    
-                return usuarios.get(i).toString();
-            }
-        }
-        return "No hay usuario con ese legajo";
-
-    }
+   
 
     public void mostrarUsuarios() {
         for (Usuario usuario : usuarios) {

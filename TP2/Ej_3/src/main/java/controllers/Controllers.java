@@ -1,12 +1,14 @@
 package controllers;
 
 import Vistas.*;
+import javax.swing.JOptionPane;
 
 import models.*;
 
 public class Controllers {
 
     private static final Ejemplares ejemplares = new Ejemplares();
+    private static final Usuarios usuarios = new Usuarios();
 
     public static void inicio() {
         new VistaPrincipal().setVisible(true);
@@ -21,23 +23,33 @@ public class Controllers {
         vistaEj.setVisible(true);
     }
 
-    public static void crearLibro(VEjemplares vista) {
-        Ejemplar ejemplar = new Ejemplar();
-        ejemplar.setId(Integer.parseInt(vista.getTextId().getText()));
-        ejemplar.setCarrera(vista.getTextCarrera().getText());
-        ejemplar.setTematica(vista.getTextTematica().getText());
-        ejemplar.setTitle(vista.getTextTitulo().getText());
-        ejemplares.agregarejemplar(ejemplar);
-        ejemplares.mostrarEjemplares();
+    public static void VistaUs(VistaPrincipal vp) {
+        VUsuarios vistaUs = new VUsuarios(vp, true);
+        vistaUs.setVisible(true);
     }
 
-    public static void mostrar(VEjemplares ve) {
+    public static void crearLibro(VEjemplares vista) {
+        try {
+            Ejemplar ejemplar = new Ejemplar();
+            ejemplar.setId(Integer.parseInt(vista.getTextId().getText()));
+            ejemplar.setCarrera(vista.getTextCarrera().getText());
+            ejemplar.setTematica(vista.getTextTematica().getText());
+            ejemplar.setTitle(vista.getTextTitulo().getText());
+            ejemplares.agregarejemplar(ejemplar);
+
+            JOptionPane.showMessageDialog(vista, "Ejemplar Cargado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(vista, "Datos mal ingresados", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void mostrarEjemplares(VEjemplares ve) {
         VMostrarEjemplares ej = new VMostrarEjemplares(ve, true);
-        formatoTabla(ej);
+        formatoTablaEjemplares(ej);
         ej.setVisible(true);
     }
 
-    public static void formatoTabla(VMostrarEjemplares vista) {
+    public static void formatoTablaEjemplares(VMostrarEjemplares vista) {
         vista.getModelo().setColumnCount(0);
         vista.getModelo().setNumRows(0);
         vista.getModelo().addColumn("ID");
@@ -57,22 +69,51 @@ public class Controllers {
         vista.getTabla().setModel(vista.getModelo());
     }
 
-    /* 
-    public static void crearUsuario(int legajo, String name, String tipo, String situacion) {
-        Usuario usuario = new Usuario(legajo, name, tipo, situacion);
-        usuarios.crearUsuario(usuario);
-    }
+    public static void crearUsuario(VUsuarios vu) {
+        try {
+            Usuario usuario = new Usuario();
+            usuario.setLegajo(Integer.parseInt(vu.getTextLegajo().getText()));
 
-    public static void validarUS(int usuario) {
-        String mensaje = usuarios.validarUsuario(usuario);
-        if (mensaje.equals("No es socio")) {
-            crearUsuario(57900, "Lucas Campos", "Profesor", "al dia");
-            System.out.println("Socio Creado");
-        } else {
-            System.out.println(mensaje);
+            usuario.setName(vu.getTextNombre().getText());
+            usuario.setTipo(vu.getComboTipo().getSelectedItem().toString());
+            usuario.setEstado(vu.getLabelSituacion().getText());
+
+            usuarios.crearUsuario(usuario);
+
+            JOptionPane.showMessageDialog(vu, "Usuario Cargado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(vu, "Datos mal ingresados", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+      
+    
+    public static void mostrarUsuarios(VUsuarios vu) {
+        VMostrarUsuarios us = new VMostrarUsuarios(vu, true);
+        formatoTablaUsuarios(us);
+        us.setVisible(true);
+    }
 
+    public static void formatoTablaUsuarios(VMostrarUsuarios vista) {
+        vista.getModelo().setColumnCount(0);
+        vista.getModelo().setNumRows(0);
+        vista.getModelo().addColumn("Legajo");
+        vista.getModelo().addColumn("Nombre");
+        vista.getModelo().addColumn("Tipo");
+        vista.getModelo().addColumn("Estado");
+
+        for (Usuario usuario : usuarios.getUsuarios()) {
+            Object[] fila = new Object[4];
+            fila[0] = usuario.getLegajo();
+            fila[1] = usuario.getName();
+            fila[2] = usuario.getTipo();
+            fila[3] = usuario.getEstado();
+            vista.getModelo().addRow(fila);
+        }
+
+        vista.getTabla().setModel(vista.getModelo());
+    }
+
+    /*
     public static String buscarlibro(String title) {
         String libro = ejemplares.buscarEjemplar(title);
         return libro;

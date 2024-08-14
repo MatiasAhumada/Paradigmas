@@ -1,10 +1,11 @@
 package models;
 
 public class Usuario {
+
     private int legajo;
     private String name;
     private String tipo; // ALUMNO, PROFESOR Y BIBLIOTECARIO
-    private String situacion;
+    private String estado;
 
     public Usuario() {
 
@@ -14,11 +15,27 @@ public class Usuario {
         this.legajo = legajo;
         this.name = name;
         this.tipo = tipo;
-        this.situacion = situacion;
+        this.estado = situacion;
     }
 
-    public String getSituacion() {
-        return situacion;
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setEstado(String situacion) {
+        this.estado = situacion;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 
     public int getLegajo() {
@@ -31,11 +48,13 @@ public class Usuario {
 
     public String getTipo() {
         return tipo;
-    };
+    }
+
+    ;
 
     @Override
     public String toString() {
-        return "Legajo: " + legajo + " Nombre: " + name + " Tipo: " + tipo +" Condicion: "+situacion;
+        return "Legajo: " + legajo + " Nombre: " + name + " Tipo: " + tipo + " Condicion: " + estado;
 
     }
 }

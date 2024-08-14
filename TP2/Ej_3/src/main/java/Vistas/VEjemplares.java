@@ -187,7 +187,7 @@ public class VEjemplares extends javax.swing.JDialog {
 
     private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
         // TODO add your handling code here:
-        Controllers.mostrar(this);
+        Controllers.mostrarEjemplares(this);
     }//GEN-LAST:event_BtnMostrarActionPerformed
 
     /**

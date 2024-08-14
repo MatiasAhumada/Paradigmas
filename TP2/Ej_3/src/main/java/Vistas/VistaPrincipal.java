@@ -33,8 +33,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu = new javax.swing.JMenu();
         MenuEjemplares = new javax.swing.JMenuItem();
-        MenuPrestamos = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        MenuUsuarios = new javax.swing.JMenuItem();
+        MenuPrestamo = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -57,16 +57,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         Menu.add(MenuEjemplares);
 
-        MenuPrestamos.setText("Usuarios");
-        MenuPrestamos.addActionListener(new java.awt.event.ActionListener() {
+        MenuUsuarios.setText("Usuarios");
+        MenuUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuPrestamosActionPerformed(evt);
+                MenuUsuariosActionPerformed(evt);
             }
         });
-        Menu.add(MenuPrestamos);
+        Menu.add(MenuUsuarios);
 
-        jMenuItem4.setText("Prestamos");
-        Menu.add(jMenuItem4);
+        MenuPrestamo.setText("Prestamos");
+        MenuPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPrestamoActionPerformed(evt);
+            }
+        });
+        Menu.add(MenuPrestamo);
 
         jMenuBar1.add(Menu);
 
@@ -97,14 +102,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Controllers.salir(this);
     }//GEN-LAST:event_BtnSalirActionPerformed
 
-    private void MenuPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrestamosActionPerformed
+    private void MenuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MenuPrestamosActionPerformed
+        Controllers.VistaUs(this);
+    }//GEN-LAST:event_MenuUsuariosActionPerformed
 
     private void MenuEjemplaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEjemplaresActionPerformed
         // TODO add your handling code here:
       Controllers.VistaEj(this);
     }//GEN-LAST:event_MenuEjemplaresActionPerformed
+
+    private void MenuPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrestamoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuPrestamoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,9 +125,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir;
     private javax.swing.JMenu Menu;
     private javax.swing.JMenuItem MenuEjemplares;
-    private javax.swing.JMenuItem MenuPrestamos;
+    private javax.swing.JMenuItem MenuPrestamo;
+    private javax.swing.JMenuItem MenuUsuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
