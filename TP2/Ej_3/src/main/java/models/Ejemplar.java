@@ -17,6 +17,23 @@ public class Ejemplar {
         this.tematica = tematica;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public void setTematica(String tematica) {
+        this.tematica = tematica;
+    }
+
+    
     public int getId() {
         return id;
     }

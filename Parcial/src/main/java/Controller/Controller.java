@@ -54,26 +54,30 @@ public class Controller {
     }
 
     public static void PreCreacion(VistaPrincipal vista) {
-
-        vista.getLabelCliente().setText(vista.getTextNombre().getText() + " " + vista.getTextApellido().getText());
-        vista.getLabelCantidad().setText(vista.getTextCantidad().getText());
-        vista.getLabelEnvio().setText("1500");
-        vista.getLabelCU().setText("500");
-        vista.getLabelDocena().setText("5000");
-        vista.getLabelCFecha().setText(vista.getFecha().getText());
-        vista.getLabelTipo().setText(vista.getComboTipo().getSelectedItem().toString());
-        if (Integer.parseInt(vista.getTextCantidad().getText()) == 12) {
-            int CalculoTotal = 1500 + (500 * Integer.parseInt(vista.getTextCantidad().getText()));
-            vista.getLabelTotal().setText(Integer.toString(CalculoTotal));
+        if (vista.getTextNombre().getText() == "" || vista.getTextCantidad().getText() == "" || vista.getComboTipo().getSelectedItem().toString() == "Opciones") {
+            JOptionPane.showMessageDialog(vista, "Datos incompletos", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            int CalculoTotal = 1500 + (500 * Integer.parseInt(vista.getTextCantidad().getText()));
-            vista.getLabelTotal().setText(Integer.toString(CalculoTotal));
+            vista.getLabelCliente().setText(vista.getTextNombre().getText() + " " + vista.getTextApellido().getText());
+            vista.getLabelCantidad().setText(vista.getTextCantidad().getText());
+            vista.getLabelEnvio().setText("1500");
+            vista.getLabelCU().setText("500");
+            vista.getLabelDocena().setText("5000");
+            vista.getLabelCFecha().setText(vista.getFecha().getText());
+            vista.getLabelTipo().setText(vista.getComboTipo().getSelectedItem().toString());
+            if (Integer.parseInt(vista.getTextCantidad().getText()) == 12) {
+                int CalculoTotal = 1500 + (500 * Integer.parseInt(vista.getTextCantidad().getText()));
+                vista.getLabelTotal().setText(Integer.toString(CalculoTotal));
+            } else {
+                int CalculoTotal = 1500 + (500 * Integer.parseInt(vista.getTextCantidad().getText()));
+                vista.getLabelTotal().setText(Integer.toString(CalculoTotal));
+            }
+
         }
 
     }
 
     public static void mostrar(VistaPrincipal vp) {
-       ListaPed pedidoss = new ListaPed(vp,true);
+        ListaPed pedidoss = new ListaPed(vp, true);
         formatoTabla(pedidoss);
         pedidoss.setVisible(true);
     }
