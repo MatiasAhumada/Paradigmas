@@ -19,10 +19,10 @@ public class Ejemplares {
             ejemplares.add(ejemplar);
     }
 
-    public String buscarEjemplar(String title){
-        //Ejemplar ejemplar = new Ejemplar();
+    public String buscarEjemplar(String PClave){
+      
         for (int i = 0; i < ejemplares.size(); i++){
-            if(ejemplares.get(i).getTitle()==title){
+            if(ejemplares.get(i).getTitle().equals(PClave)||ejemplares.get(i).getTematica().equals(PClave)){
                 return ejemplares.get(i).toString();
             }
         }

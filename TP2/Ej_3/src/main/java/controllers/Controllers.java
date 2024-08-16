@@ -73,7 +73,6 @@ public class Controllers {
         try {
             Usuario usuario = new Usuario();
             usuario.setLegajo(Integer.parseInt(vu.getTextLegajo().getText()));
-
             usuario.setName(vu.getTextNombre().getText());
             usuario.setTipo(vu.getComboTipo().getSelectedItem().toString());
             usuario.setEstado(vu.getLabelSituacion().getText());
@@ -113,12 +112,12 @@ public class Controllers {
         vista.getTabla().setModel(vista.getModelo());
     }
 
-    /*
-    public static String buscarlibro(String title) {
-        String libro = ejemplares.buscarEjemplar(title);
+    
+    public static String buscarlibro(String PClave) {
+        String libro = ejemplares.buscarEjemplar(PClave);
         return libro;
     }
-
+/*
     public static String buscarUsuario(int legajo) {
         String usuario = usuarios.buscarUsuario(legajo);
         return usuario;

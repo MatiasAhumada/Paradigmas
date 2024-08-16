@@ -1,17 +1,16 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package MAIN;
 
-package Main;
-
-import Controller.Controller;
+import Controllers.Controller;
 
 /**
  *
  * @author Matias
  */
-public class Parcial {
-
+public class Main {
     public static void main(String[] args) {
         Controller.inicio();
     }
