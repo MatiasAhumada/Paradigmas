@@ -5,12 +5,21 @@
 package Vistas;
 
 import Controllers.Controller;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Matias
  */
 public class VistaPrincipal extends javax.swing.JFrame {
+
+    public void setTextIdCliente(JTextField TextIdCliente) {
+        this.TextIdCliente = TextIdCliente;
+    }
+
+    public JTextField getTextIdCliente() {
+        return TextIdCliente;
+    }
 
     /**
      * Creates new form VistaPrincipal
@@ -167,7 +176,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAcreditar;

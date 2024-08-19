@@ -42,28 +42,43 @@ public class Controller {
         cuentas.agregarCuenta(cuenta4);
     }
 
-    public static void mostrarCliente(VistaPrincipal vp){
-        VistaCliente vc = new VistaCliente(vp,true);
-        formatoTablaC(vc);
+    public static void mostrarCliente(VistaPrincipal vp) {
+        VistaCliente vc = new VistaCliente(vp, true);
+        int ID = Integer.parseInt(vp.getTextIdCliente().getText());
+        formatoVistaC(vc, ID);
         vc.setVisible(true);
     }
-    /*public static void formatoTablaC(VistaCliente vista) {
+
+    public static void formatoVistaC(VistaCliente vista, int ID) {
         vista.getModelo().setColumnCount(0);
         vista.getModelo().setNumRows(0);
         vista.getModelo().addColumn("ID Cuenta");
         vista.getModelo().addColumn("Tipo");
         vista.getModelo().addColumn("Saldo");
 
-        for (Ejemplar ejemplar : ejemplares.getEjemplares()) {
-            Object[] fila = new Object[4];
-            fila[0] = ejemplar.getId();
-            fila[1] = ejemplar.getTitle();
-            fila[2] = ejemplar.getCarrera();
-            fila[3] = ejemplar.getTematica();
-            vista.getModelo().addRow(fila);
+        for (Cuenta cuenta : cuentas.getCuentas()) {
+            if (cuenta.getIdCliente() == ID) {
+                vista.getLabelID().setText(Integer.toString(cuenta.getIdCliente()));
+                vista.getLabelApeNom().setText(clientes.buscarCliente(ID));
+                vista.getCombo().addItem(Integer.toString(cuenta.getIDCuenta()));
+                Object[] fila = new Object[3];
+                fila[0] = cuenta.getIDCuenta();
+                fila[1] = cuenta.getTipo();
+                fila[2] = cuenta.getSaldo();
+                vista.getModelo().addRow(fila);
+            }
         }
 
         vista.getTabla().setModel(vista.getModelo());
     }
-*/
+
+    public static void generarOP(VistaCliente vc) {
+        System.out.println(vc.getCombo().getSelectedItem());
+        for(Cuenta cuenta : cuentas.getCuentas()){        
+        if(vc.getCombo().getSelectedItem() == Integer.toString(cuenta.getIDCuenta())){
+            vc.getLabelSaldo().setText(Integer.toString(cuenta.getSaldo()));
+        }
+        
+        }
+    }
 }

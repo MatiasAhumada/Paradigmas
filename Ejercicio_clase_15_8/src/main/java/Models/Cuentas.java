@@ -28,4 +28,12 @@ public class Cuentas {
             System.out.println(cuenta);
         }
     }
+    public Cuenta buscarCuenta(int ID){
+        for(int i = 0; i < cuentas.size(); i++){
+            if(cuentas.get(i).getIdCliente()==ID){
+                return cuentas.get(i);
+            }
+        }
+        return null;
+    }
 }

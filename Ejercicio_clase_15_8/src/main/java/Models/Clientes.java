@@ -31,5 +31,13 @@ public class Clientes {
             System.out.println(cliente);
         }
     }
+    public String buscarCliente(int Id){
+        for(Cliente cliente : clientes){
+            if(cliente.getIDCliente()==Id){
+                return cliente.getApeNom();
+            }
+        }
+        return null;
+    }
 
 }
