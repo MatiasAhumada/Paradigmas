@@ -88,16 +88,14 @@ public class Controller {
         vista.getModelo().addColumn("Saldo");
 
         for (Cuenta cuenta : cuentas.getCuentas()) {
-            if (cuenta.getIdCliente() == ID) {
-                int c = 1;
                 int suma = 0;
                 int saldo = suma + cuenta.getSaldo();
+            if (cuenta.getIdCliente() == ID) {
+                
                 vista.getLabelID().setText(Integer.toString(cuenta.getIdCliente()));
                 vista.getLabelApeNom().setText(clientes.buscarCliente(ID));
-                if (c >= 1) {
-                    vista.getCombo().addItem(Integer.toString(cuenta.getIDCuenta()));
-                    vista.getLabelSaldo().setText(Integer.toString(saldo));
-                }
+                vista.getCombo().addItem(Integer.toString(cuenta.getIDCuenta()));
+                vista.getLabelSaldo().setText(Integer.toString(saldo));
                 Object[] fila = new Object[3];
                 fila[0] = cuenta.getIDCuenta();
                 fila[1] = cuenta.getTipo();
@@ -110,8 +108,9 @@ public class Controller {
     }
 
     public static void generarOP(VistaCliente vc) {
-        LocalDateTime fecha = LocalDateTime.now();
-        String fec = fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/" + fecha.getYear();
+        Fecha fe=new Fecha();
+        System.out.println(fe.toString());
+        String fec = fe.toString();
         if (vc.getComboOp().getSelectedItem() == "Acreditar") {
 
             int saldo = cuentas.acreditar(Integer.parseInt(vc.getCombo().getSelectedItem().toString()), Integer.parseInt(vc.getTextMonto().getText()));
@@ -154,8 +153,8 @@ public class Controller {
                 int IDCuenta = Integer.parseInt(vc.getCombo().getSelectedItem().toString());
                 formatoMovs(vm, IDCuenta);
                 vm.setVisible(true);
-            }else{
-                 JOptionPane.showMessageDialog(null, "No existen movimientos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "No existen movimientos", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
 
         } catch (Exception ex) {
