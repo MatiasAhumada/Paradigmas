@@ -48,9 +48,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         TextIdCliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         BtnBuscar = new javax.swing.JButton();
-        BtnAcreditar = new javax.swing.JButton();
-        BtnDebitar = new javax.swing.JButton();
-        BtnSaldo = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -92,12 +89,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        BtnAcreditar.setText("Acreditar");
-
-        BtnDebitar.setText("Debitar");
-
-        BtnSaldo.setText("Saldo");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,27 +102,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addComponent(TextIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 161, Short.MAX_VALUE)
+                        .addGap(0, 265, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(BtnSaldo)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnDebitar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(BtnAcreditar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnBuscar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnSalir))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(125, 125, 125)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(BtnBuscar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtnSalir)
                                 .addGap(21, 21, 21))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(253, 253, 253))))))
+                                .addGap(253, 253, 253))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(272, 272, 272))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,10 +130,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnSalir)
-                    .addComponent(BtnBuscar)
-                    .addComponent(BtnAcreditar)
-                    .addComponent(BtnDebitar)
-                    .addComponent(BtnSaldo))
+                    .addComponent(BtnBuscar))
                 .addContainerGap())
         );
 
@@ -168,8 +148,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
-        Controller.agregarCliente();
-        Controller.aggCuentaCliente();
+      
         Controller.mostrarCliente(this);
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
@@ -178,10 +157,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAcreditar;
     private javax.swing.JButton BtnBuscar;
-    private javax.swing.JButton BtnDebitar;
-    private javax.swing.JButton BtnSaldo;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JTextField TextIdCliente;
     private javax.swing.JLabel jLabel1;
