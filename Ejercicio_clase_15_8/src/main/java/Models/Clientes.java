@@ -39,5 +39,13 @@ public class Clientes {
         }
         return null;
     }
-
+    public int buscarCID(int ID){
+        for(Cliente cliente : clientes){
+            if(cliente.getIDCliente()==ID){
+                return cliente.getIDCliente();
+            }
+        }
+        return 0;
+        
+    }
 }

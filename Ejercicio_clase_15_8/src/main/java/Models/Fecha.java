@@ -15,8 +15,7 @@ public class Fecha {
     private int Dia;
     private int Mes;
     private int anio;
-    LocalDateTime fec = LocalDateTime.now();
-
+LocalDateTime fec = LocalDateTime.now();
     public Fecha() {
 
     }
@@ -47,6 +46,6 @@ public class Fecha {
 
     @Override
     public String toString() {
-        return  Dia + "/" + Mes + "/" + anio ;
+        return Dia + "/" + Mes + "/" + anio;
     }
 }

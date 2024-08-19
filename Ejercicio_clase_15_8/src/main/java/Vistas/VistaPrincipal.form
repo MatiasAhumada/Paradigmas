@@ -70,31 +70,21 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="161" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="265" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="BtnSaldo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="BtnDebitar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="BtnAcreditar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="BtnBuscar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="BtnSalir" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="BtnBuscar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="BtnSalir" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -118,9 +108,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BtnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BtnAcreditar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BtnDebitar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BtnSaldo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -169,21 +156,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBuscarActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnAcreditar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Acreditar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnDebitar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Debitar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnSaldo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Saldo"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

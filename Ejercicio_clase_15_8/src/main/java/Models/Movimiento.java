@@ -9,19 +9,18 @@ package Models;
  * @author Matias
  */
 public class Movimiento {
-    
+
     private String Fecha;
     private int IDCliente;
     private int IDCuenta;
-    private int TipoMov;
+    private String TipoMov;
     private int CantMov;
     private int Saldo;
-    
 
     public Movimiento() {
     }
 
-    public Movimiento(Fecha fecha, int IDCliente, int IDCuenta, int TipoMov, int CantMov, int Saldo) {
+    public Movimiento(Fecha fecha, int IDCliente, int IDCuenta, String TipoMov, int CantMov, int Saldo) {
         this.Fecha = fecha.toString();
         this.IDCliente = IDCliente;
         this.IDCuenta = IDCuenta;
@@ -30,8 +29,8 @@ public class Movimiento {
         this.Saldo = Saldo;
     }
 
-    public void setFecha(Fecha fecha) {
-        this.Fecha = fecha.toString();
+    public void setFecha(String fecha) {
+        this.Fecha = fecha;
     }
 
     public String getFecha() {
@@ -54,11 +53,11 @@ public class Movimiento {
         return IDCuenta;
     }
 
-    public void setTipoMov(int TipoMov) {
+    public void setTipoMov(String TipoMov) {
         this.TipoMov = TipoMov;
     }
 
-    public int getTipoMov() {
+    public String getTipoMov() {
         return TipoMov;
     }
 
@@ -80,8 +79,7 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return "Movimientos" + "\nFecha=" + Fecha + "\nIDCliente=" + IDCliente + "\nIDCuenta=" + IDCuenta + "\nTipoMov=" + TipoMov + "\nCantMov=" + CantMov + "\nSaldo=" + Saldo + '}';
+        return "\nFecha=" + Fecha + "\nIDCliente=" + IDCliente + "\nIDCuenta=" + IDCuenta + "\nTipoMov=" + TipoMov + "\nCantMov=" + CantMov + "\nSaldo=" + Saldo;
     }
-    
-    
+
 }
