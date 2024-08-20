@@ -7,7 +7,6 @@ package Controllers;
 import Vistas.*;
 import Models.*;
 
-import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,17 +25,17 @@ public class Controller {
 
     public static void agregarCliente() {
         Cliente cliente1 = new Cliente(57903, "Matias");
-        clientes.agregarCuenta(cliente1);
+        clientes.agregarCliente(cliente1);
         Cliente cliente2 = new Cliente(57873, "Lucas");
-        clientes.agregarCuenta(cliente2);
+        clientes.agregarCliente(cliente2);
         Cliente cliente3 = new Cliente(57869, "Barale");
-        clientes.agregarCuenta(cliente3);
+        clientes.agregarCliente(cliente3);
         Cliente cliente4 = new Cliente(58114, "Goane");
-        clientes.agregarCuenta(cliente4);
+        clientes.agregarCliente(cliente4);
     }
 
     public static void aggCuentaCliente() {
-        Cuenta cuenta1 = new Cuenta(57903, "Corriente", 1000, 57903);
+        Cuenta cuenta1 = new Cuenta(57903, "Corriente", 5000, 57903);
         cuentas.agregarCuenta(cuenta1);
         Cuenta cuenta2 = new Cuenta(57873, "C. Ahorro", 2000, 57873);
         cuentas.agregarCuenta(cuenta2);
@@ -81,38 +80,38 @@ public class Controller {
     }
 
     public static void formatoVistaC(VistaCliente vista, int ID) {
+        int saldo = 0;
+
         vista.getModelo().setColumnCount(0);
         vista.getModelo().setNumRows(0);
         vista.getModelo().addColumn("ID Cuenta");
         vista.getModelo().addColumn("Tipo");
         vista.getModelo().addColumn("Saldo");
-
-        for (Cuenta cuenta : cuentas.getCuentas()) {
-                int suma = 0;
-                int saldo = suma + cuenta.getSaldo();
-            if (cuenta.getIdCliente() == ID) {
-                
-                vista.getLabelID().setText(Integer.toString(cuenta.getIdCliente()));
-                vista.getLabelApeNom().setText(clientes.buscarCliente(ID));
-                vista.getCombo().addItem(Integer.toString(cuenta.getIDCuenta()));
-                vista.getLabelSaldo().setText(Integer.toString(saldo));
+        vista.getCombo().removeAllItems();
+        vista.getCombo().addItem("ID Cuentas");
+        for (int i = 0; i < cuentas.getCuentas().size(); i++) {
+            if (cuentas.getCuentas().get(i).getIdCliente() == ID) {
+                saldo += cuentas.getCuentas().get(i).getSaldo();
+                vista.getLabelID().setText(Integer.toString(cuentas.getCuentas().get(i).getIdCliente()));
+                vista.getCombo().addItem(Integer.toString(cuentas.getCuentas().get(i).getIDCuenta()));
                 Object[] fila = new Object[3];
-                fila[0] = cuenta.getIDCuenta();
-                fila[1] = cuenta.getTipo();
-                fila[2] = cuenta.getSaldo();
+                fila[0] = cuentas.getCuentas().get(i).getIDCuenta();
+                fila[1] = cuentas.getCuentas().get(i).getTipo();
+                fila[2] = cuentas.getCuentas().get(i).getSaldo();
                 vista.getModelo().addRow(fila);
             }
         }
 
         vista.getTabla().setModel(vista.getModelo());
+        vista.getLabelApeNom().setText(clientes.buscarCliente(ID));
+        vista.getLabelSaldo().setText(Integer.toString(saldo));
     }
 
     public static void generarOP(VistaCliente vc) {
-        Fecha fe=new Fecha();
+        Fecha fe = new Fecha();
         System.out.println(fe.toString());
         String fec = fe.toString();
         if (vc.getComboOp().getSelectedItem() == "Acreditar") {
-
             int saldo = cuentas.acreditar(Integer.parseInt(vc.getCombo().getSelectedItem().toString()), Integer.parseInt(vc.getTextMonto().getText()));
             Movimiento mov1 = new Movimiento();
             mov1.setFecha(fec);
@@ -122,12 +121,12 @@ public class Controller {
             mov1.setCantMov(Integer.parseInt(vc.getTextMonto().getText()));
             mov1.setSaldo(saldo);
             movs.agregarMov(mov1);
+            formatoVistaC(vc, Integer.parseInt(vc.getCombo().getSelectedItem().toString()));
             JOptionPane.showMessageDialog(vc, "Saldo Acreditado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 
         } else {
-
-            //System.out.println(cuentas.buscarCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString())).getTipo());
-            if (cuentas.buscarCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString())).getTipo() == "Corriente") {
+            if (cuentas.buscarCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString())).getTipo() == "C. Ahorro" && cuentas.buscarCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString())).getSaldo() >= Integer.parseInt(vc.getTextMonto().getText())) {
+                System.out.println(cuentas.buscarCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString())).getTipo());
                 int saldo = cuentas.debitar(Integer.parseInt(vc.getCombo().getSelectedItem().toString()), Integer.parseInt(vc.getTextMonto().getText()));
                 Movimiento mov1 = new Movimiento();
                 mov1.setFecha(fec);
@@ -137,8 +136,21 @@ public class Controller {
                 mov1.setCantMov(Integer.parseInt(vc.getTextMonto().getText()));
                 mov1.setSaldo(saldo);
                 movs.agregarMov(mov1);
+                formatoVistaC(vc, Integer.parseInt(vc.getCombo().getSelectedItem().toString()));
                 JOptionPane.showMessageDialog(vc, "Saldo Debitado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 
+            } else if (cuentas.buscarCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString())).getTipo() == "Corriente") {
+                int saldo = cuentas.debitar(Integer.parseInt(vc.getCombo().getSelectedItem().toString()), Integer.parseInt(vc.getTextMonto().getText()));
+                Movimiento mov1 = new Movimiento();
+                mov1.setFecha(fec);
+                mov1.setIDCliente(Integer.parseInt(vc.getLabelID().getText()));
+                mov1.setIDCuenta(Integer.parseInt(vc.getCombo().getSelectedItem().toString()));
+                mov1.setTipoMov(vc.getComboOp().getSelectedItem().toString());
+                mov1.setCantMov(Integer.parseInt(vc.getTextMonto().getText()));
+                mov1.setSaldo(saldo);
+                movs.agregarMov(mov1);
+                formatoVistaC(vc, Integer.parseInt(vc.getCombo().getSelectedItem().toString()));
+                JOptionPane.showMessageDialog(vc, "Saldo Debitado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Saldo Insuficiente para debito", "ERROR", JOptionPane.ERROR_MESSAGE);
             }

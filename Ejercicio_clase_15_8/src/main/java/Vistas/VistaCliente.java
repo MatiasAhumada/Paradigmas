@@ -85,6 +85,8 @@ public class VistaCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form VistaCliente
+     * @param parent
+     * @param modal
      */
     public VistaCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -174,6 +176,12 @@ public class VistaCliente extends javax.swing.JDialog {
         ComboOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operaciones", "Acreditar", "Debitar" }));
 
         jLabel9.setText(" Monto a operar");
+
+        TextMonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextMontoActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Movimientos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -301,6 +309,10 @@ public class VistaCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
         Controller.movimientos(this);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TextMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextMontoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextMontoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

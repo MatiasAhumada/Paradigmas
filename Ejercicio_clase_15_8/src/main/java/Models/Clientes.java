@@ -22,7 +22,7 @@ public class Clientes {
         this.clientes = clientes;
     }
 
-    public void agregarCuenta(Cliente cliente) {
+    public void agregarCliente(Cliente cliente) {
         clientes.add(cliente);
     }
 

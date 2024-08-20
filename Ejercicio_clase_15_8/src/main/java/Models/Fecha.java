@@ -15,29 +15,20 @@ public class Fecha {
     private int Dia;
     private int Mes;
     private int anio;
-LocalDateTime fec = LocalDateTime.now();
+    LocalDateTime fec = LocalDateTime.now();
+
     public Fecha() {
-
-    }
-
-    public void setDia() {
         this.Dia = fec.getDayOfMonth();
+        this.Mes = fec.getMonthValue();
+        this.anio = fec.getYear();
     }
 
     public int getDia() {
         return Dia;
     }
 
-    public void setMes() {
-        this.Mes = fec.getMonthValue();
-    }
-
     public int getMes() {
         return Mes;
-    }
-
-    public void setAnio() {
-        this.anio = fec.getYear();
     }
 
     public int getAnio() {

@@ -272,6 +272,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TextMonto">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextMontoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LabelSaldo">
     </Component>
