@@ -26,6 +26,8 @@ public class Pedido {
         this.Precio = Precio;
     }
 
+  
+
     public int getIDPed() {
         return IDPed;
     }

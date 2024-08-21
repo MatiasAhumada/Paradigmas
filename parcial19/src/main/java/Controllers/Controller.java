@@ -61,7 +61,8 @@ public class Controller {
     public static void CrearPed(VistaPrincipal vp, Producto prod) {
         Pedido ped = new Pedido();
         double precio = (prod.getCant() * prod.getPrecio());
-        ped.setIDPed(c);c++;
+        ped.setIDPed(c);
+        c++;
         ped.setIDProd(prod.getID());
         ped.setIDFab(prod.getFab());
         ped.setCantProd(prod.getCant());
@@ -143,7 +144,6 @@ public class Controller {
             fila[1] = prod.getDesc();
             fila[2] = prod.getCant();
             fila[3] = prod.getPrecio();
-            System.out.println(fabs.buscar(prod.getFab()).getDesc());
             fila[4] = fabs.buscar(prod.getFab()).getDesc();
             vista.getModelo().addRow(fila);
         }

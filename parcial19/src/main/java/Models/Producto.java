@@ -9,6 +9,7 @@ package Models;
  * @author Matias
  */
 public class Producto {
+
     private int ID;
     private String Desc;
     private int Cant;
@@ -70,8 +71,5 @@ public class Producto {
     public String toString() {
         return "Producto{" + "ID=" + ID + ", Desc=" + Desc + ", Cant=" + Cant + ", Precio=" + Precio + ", Fab=" + Fab + '}';
     }
-    
-    
-    
-    
+
 }
