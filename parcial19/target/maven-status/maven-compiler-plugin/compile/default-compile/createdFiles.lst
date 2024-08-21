@@ -1,4 +1,3 @@
-Main\Parcial19.class
 Vistas\VistaPrincipal$4.class
 Vistas\VistaPrincipal.class
 Controllers\Controller.class
@@ -6,6 +5,7 @@ Vistas\VistaPedidos$1.class
 Models\Productos.class
 Vistas\VistaPrincipal$2.class
 Vistas\VistaProductos.class
+Main\Almacen.class
 Models\Pedidos.class
 Vistas\VistaProductos$1.class
 Vistas\VistaPrincipal$1.class

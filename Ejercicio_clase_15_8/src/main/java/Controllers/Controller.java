@@ -11,7 +11,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Matias
+ * @author Matias Ahumada
+ * Legajo: 57903
  */
 public class Controller {
 

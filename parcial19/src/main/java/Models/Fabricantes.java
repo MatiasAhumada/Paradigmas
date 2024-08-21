@@ -34,7 +34,9 @@ public class Fabricantes {
 
     public Fabricante buscar(int ID) {
         for (int i = 0; i < fabricantes.size(); i++) {
-            return fabricantes.get(i);
+            if (fabricantes.get(i).getCodigo() == ID) {
+                return fabricantes.get(i);
+            }
         }
         return null;
     }

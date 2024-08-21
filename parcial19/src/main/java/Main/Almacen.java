@@ -9,7 +9,7 @@ import Controllers.*;
  *
  * @author Matias
  */
-public class Parcial19 {
+public class Almacen {
 
     public static void main(String[] args) {
         Controller.inicio();

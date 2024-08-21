@@ -6,7 +6,7 @@ package Controllers;
 
 import Models.*;
 import Vistas.*;
-import java.awt.Dimension;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +18,7 @@ public class Controller {
     private static final Fabricantes fabs = new Fabricantes();
     private static final Productos prods = new Productos();
     private static final Pedidos peds = new Pedidos();
+    private static int c = 0;
 
     public static void inicio() {
         new VistaPrincipal().setVisible(true);
@@ -39,7 +40,6 @@ public class Controller {
 
     public static void CrearProds(VistaPrincipal vp) {
         try {
-
             Producto prod = new Producto();
             prod.setID(Integer.parseInt(vp.getTextID().getText()));
             prod.setFab(Integer.parseInt(vp.getComboFab().getSelectedItem().toString()));
@@ -60,12 +60,11 @@ public class Controller {
 
     public static void CrearPed(VistaPrincipal vp, Producto prod) {
         Pedido ped = new Pedido();
-        int c = 0;
         double precio = (prod.getCant() * prod.getPrecio());
-        ped.setIDPed(c++);
+        ped.setIDPed(c);c++;
         ped.setIDProd(prod.getID());
-        ped.setIDFab(Integer.parseInt(vp.getComboFab().getSelectedItem().toString()));
-        ped.setCantProd(Integer.parseInt(vp.getTextCant().getText()));
+        ped.setIDFab(prod.getFab());
+        ped.setCantProd(prod.getCant());
         ped.setPrecio(precio);
         peds.agg(ped);
     }
@@ -144,6 +143,7 @@ public class Controller {
             fila[1] = prod.getDesc();
             fila[2] = prod.getCant();
             fila[3] = prod.getPrecio();
+            System.out.println(fabs.buscar(prod.getFab()).getDesc());
             fila[4] = fabs.buscar(prod.getFab()).getDesc();
             vista.getModelo().addRow(fila);
         }
