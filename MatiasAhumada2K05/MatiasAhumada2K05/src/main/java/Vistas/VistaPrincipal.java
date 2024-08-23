@@ -7,7 +7,6 @@ package Vistas;
 import Controllers.Controller;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
-
 /**
  *
  * @author Matias Ahumada Legajo 57903 Comision 2K05

@@ -1,6 +1,7 @@
 package controllers;
 
 import Vistas.*;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 import models.*;
@@ -9,6 +10,7 @@ public class Controllers {
 
     private static final Ejemplares ejemplares = new Ejemplares();
     private static final Usuarios usuarios = new Usuarios();
+    private static final Prestamos prestamos = new Prestamos();
 
     public static void inicio() {
         new VistaPrincipal().setVisible(true);
@@ -26,6 +28,14 @@ public class Controllers {
     public static void VistaUs(VistaPrincipal vp) {
         VUsuarios vistaUs = new VUsuarios(vp, true);
         vistaUs.setVisible(true);
+    }
+
+    public static void VPres(VistaPrincipal vista) {
+        VPrestamo prestamo = new VPrestamo(vista, true);
+        Fecha fecha = new Fecha();
+        prestamo.getLabelFecha().setText(fecha.toString());
+        prestamo.setVisible(true);
+
     }
 
     public static void crearLibro(VEjemplares vista) {
@@ -84,8 +94,7 @@ public class Controllers {
             JOptionPane.showMessageDialog(vu, "Datos mal ingresados", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-      
-    
+
     public static void mostrarUsuarios(VUsuarios vu) {
         VMostrarUsuarios us = new VMostrarUsuarios(vu, true);
         formatoTablaUsuarios(us);
@@ -112,38 +121,47 @@ public class Controllers {
         vista.getTabla().setModel(vista.getModelo());
     }
 
-    
-    public static String buscarlibro(String PClave) {
-        String libro = ejemplares.buscarEjemplar(PClave);
-        return libro;
-    }
-/*
-    public static String buscarUsuario(int legajo) {
-        String usuario = usuarios.buscarUsuario(legajo);
-        return usuario;
-    }
-
-    public static void crearPrestamo(int id, String ejemplar, String usuario, String devolucion) {
-        LocalDate fecha = Fecha.obtenerFechaActual();
-        Prestamo prestamo = new Prestamo(id, fecha, ejemplar, usuario, devolucion);
-        prestamos.agregarPrestamo(prestamo);
+    public static void crearPrestamo(VPrestamo vp) {
+        Prestamo pres = new Prestamo();
+        Fecha fec = new Fecha();
+        try {
+            pres.setId(Integer.parseInt(vp.getTextIDP().getText()));
+            pres.setIDUsuario(Integer.parseInt(vp.getTextIDus().getText()));
+            pres.setFecha(fec.toString());
+            pres.setEjemplarPrestamo(ejemplares.buscarEjemplar(vp.getTextEjemplar().getText()).getTitle());
+            pres.setDevolucion(Integer.parseInt(vp.getTextDevolucion().getText()));
+            prestamos.agregarPrestamo(pres);
+        } catch (Exception ex) {
+            System.out.println("Error de sistema");
+        }
     }
 
-    public static void mostrarPrestamo() {
-        prestamos.mostrarPrestamos();
+    public static void mostrarPrestamos(VPrestamo vp) {
+        VMostrarPrestamos ps = new VMostrarPrestamos(vp, true);
+        formatoTablaPrestamos(ps);
+        ps.setVisible(true);
     }
 
-    public static void mostrarUsuarios() {
-        usuarios.mostrarUsuarios();
+    public static void formatoTablaPrestamos(VMostrarPrestamos vista) {
+        vista.getModelo().setColumnCount(0);
+        vista.getModelo().setNumRows(0);
+        vista.getModelo().addColumn("Fecha");
+        vista.getModelo().addColumn("ID Prestamo");
+        vista.getModelo().addColumn("ID Usuario");
+        vista.getModelo().addColumn("Ejemplar");
+        vista.getModelo().addColumn("Devolucion");
+
+        for (Prestamo prestamo : prestamos.getPrestamos()) {
+            Object[] fila = new Object[5];
+            fila[0] = prestamo.getFecha();
+            fila[1] = prestamo.getId();
+            fila[2] = prestamo.getIDUsuario();
+            fila[3] = prestamo.getEjemplarPrestamo();
+            fila[4] = prestamo.getDevolucion();
+            vista.getModelo().addRow(fila);
+        }
+
+        vista.getTabla().setModel(vista.getModelo());
     }
 
-   
-    public static void biblioteca() {
-        crearUsuario(57903, "Matias Ahumada", "Estudiante", "deudor");
-        crearLibro(101, "calculo de una variable", "ISI", "Matematica");
-        crearLibro(102, "Fisica I", "ISI", "Fisica");
-        crearPrestamo(100, buscarlibro("calculo de una variable"), buscarUsuario(57903), "2024-06-10");
-        mostrarPrestamo();
-        validarUS(57903);
-    }*/
 }

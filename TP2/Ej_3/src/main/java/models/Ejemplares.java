@@ -3,8 +3,8 @@ package models;
 import java.util.ArrayList;
 
 public class Ejemplares {
-    private ArrayList<Ejemplar> ejemplares=new ArrayList<Ejemplar>();
-    
+
+    private ArrayList<Ejemplar> ejemplares = new ArrayList<Ejemplar>();
 
     public ArrayList<Ejemplar> getEjemplares() {
         return ejemplares;
@@ -14,25 +14,25 @@ public class Ejemplares {
         this.ejemplares = ejemplares;
     }
 
-   
-    public  void agregarejemplar(Ejemplar ejemplar){
-            ejemplares.add(ejemplar);
+    public void agregarejemplar(Ejemplar ejemplar) {
+        ejemplares.add(ejemplar);
     }
 
-    public String buscarEjemplar(String PClave){
-      
-        for (int i = 0; i < ejemplares.size(); i++){
-            if(ejemplares.get(i).getTitle().equals(PClave)||ejemplares.get(i).getTematica().equals(PClave)){
-                return ejemplares.get(i).toString();
+    public void mostrarEjemplares() {
+        for (Ejemplar ejemplar : ejemplares) {
+            System.out.println(ejemplar + "\n");
+        }
+    }
+    public Ejemplar buscarEjemplar(String Title) {
+        for (int i = 0; i < ejemplares.size(); i++) {
+            if (ejemplares.get(i).getTitle().equals(Title) || ejemplares.get(i).getTematica().equals(Title)) {
+                return ejemplares.get(i);
             }
         }
-        return "no se encontro nada";
+        return null;
     }
-   
-    public void mostrarEjemplares(){
-       
-        for(Ejemplar ejemplar: ejemplares){
-            System.out.println(ejemplar+"\n");
-        }
-    }
+    
+    
+    
+
 }

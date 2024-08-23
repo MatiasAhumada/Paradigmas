@@ -1,46 +1,67 @@
 package models;
 
-import java.time.LocalDate;
-
 public class Prestamo {
-    private static final Ejemplar ejemplar = new Ejemplar();
-    private LocalDate fecha;
-    private final int id;
-    private final String ejemplarPrestamo;
-    private final String socio;
-    private final String devolucion;
 
-    public String getDevolucion() {
-        return devolucion;
+    private String fecha;
+    private int id;
+    private String ejemplarPrestamo;
+    private int IDUsuario;
+    private int devolucion;
+
+    public Prestamo() {
     }
-    public Prestamo(int id,LocalDate fecha , String ejemplarPrestamo, String socio,String devolucion) {
+
+    public Prestamo(Fecha fecha, int id, String ejemplarPrestamo, int IDUsuario, int devolucion) {
+        this.fecha = fecha.toString();
         this.id = id;
-        this.fecha=fecha;
         this.ejemplarPrestamo = ejemplarPrestamo;
-        this.socio = socio;
-        this.devolucion=devolucion;
+        this.IDUsuario = IDUsuario;
+        this.devolucion = devolucion;
     }
-    public LocalDate getFecha() {
+
+    public String getFecha() {
         return fecha;
     }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
     public int getId() {
         return id;
     }
 
-    public static Ejemplar getEjemplar() {
-        return ejemplar;
-    }
-
-    public String getSocio() {
-        return socio;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEjemplarPrestamo() {
         return ejemplarPrestamo;
     }
 
+    public void setEjemplarPrestamo(String ejemplarPrestamo) {
+        this.ejemplarPrestamo = ejemplarPrestamo;
+    }
+
+    public int getIDUsuario() {
+        return IDUsuario;
+    }
+
+    public void setIDUsuario(int IDUsuario) {
+        this.IDUsuario = IDUsuario;
+    }
+
+    public int getDevolucion() {
+        return devolucion;
+    }
+
+    public void setDevolucion(int devolucion) {
+        this.devolucion = devolucion;
+    }
+
     @Override
     public String toString() {
-        return "\n\tPlanilla de prestamo\n\nID Prestamo: " + id +"\tFecha: "+fecha+ "\n\n" + ejemplarPrestamo + "\n\n" + socio+"\n\nDia Devolucion: "+devolucion;
+        return "Prestamo{" + "fecha=" + fecha + ", id=" + id + ", ejemplarPrestamo=" + ejemplarPrestamo + ", IDUsuario=" + IDUsuario + ", devolucion=" + devolucion + '}';
     }
+
 }

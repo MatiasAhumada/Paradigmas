@@ -114,6 +114,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     private void MenuPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrestamoActionPerformed
         // TODO add your handling code here:
+        Controllers.VPres(this);
     }//GEN-LAST:event_MenuPrestamoActionPerformed
 
     /**

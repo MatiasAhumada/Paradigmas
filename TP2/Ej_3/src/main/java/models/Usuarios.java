@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Usuarios {
+
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
     public ArrayList<Usuario> getUsuarios() {
@@ -17,6 +18,12 @@ public class Usuarios {
         usuarios.add(usuario);
     }
 
+    public void mostrarUsuarios() {
+        for (Usuario usuario : usuarios) {
+            System.out.println(usuario + "\n");
+        }
+    }
+
     public String validarUsuario(int legajo) {
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getLegajo() == legajo && usuarios.get(i).getEstado() == "Al dia") {
@@ -28,12 +35,15 @@ public class Usuarios {
         }
         return "No es socio";
     }
-   
 
-    public void mostrarUsuarios() {
-        for (Usuario usuario : usuarios) {
-            System.out.println(usuario + "\n");
+    public Usuario BuscarID(int ID) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getLegajo() == ID) {
+                return usuarios.get(i);
+            }
+
         }
+        return null;
     }
 
 }
